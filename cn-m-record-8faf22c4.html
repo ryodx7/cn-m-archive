@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500彩票网 · 持续关注与知识索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0f172a, #1e293b, #0f172a);
+            color: #e9edf2;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffb347, #ff8c42, #ffb347);
+            opacity: 0.7;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p.sub {
+            font-size: 1.1rem;
+            color: #b0c4de;
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 180, 70, 0.3);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #fcd9a8;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* 目录感布局：两列卡片网格 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid #eef2f6;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #ff8c42;
+            padding-left: 0.8rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #334155;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0 0.25rem 1.4rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #ff8c42;
+            font-weight: bold;
+        }
+
+        .cta-link {
+            color: #c75b1e;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #ffb073;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .cta-link:hover {
+            color: #a3440e;
+            border-bottom: 1px solid #a3440e;
+        }
+
+        .info-panel {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.2rem;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1rem 2rem;
+        }
+
+        .info-panel .tag {
+            background: #ffffff;
+            border: 1px solid #e0e7ef;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #475569;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .info-panel .reminder {
+            flex: 1;
+            min-width: 200px;
+            font-size: 0.98rem;
+        }
+
+        .info-panel .reminder strong {
+            color: #1e293b;
+        }
+
+        .faq-section {
+            margin-top: 2rem;
+        }
+
+        .faq-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            margin: 0.3rem 0 0;
+            font-size: 0.95rem;
+            color: #3b4a5e;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #dde3eb;
+            font-size: 0.9rem;
+            color: #5f6c80;
+        }
+
+        .footer-note a {
+            color: #c75b1e;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .info-panel {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.8rem 1.2rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>500彩票网 · 知识库入口</h1>
+        <p class="sub">持续关注 · 收藏索引 · 再次访问的起点</p>
+        <span class="badge">📌 信息聚合 · 客观视角</span>
+    </section>
+
+    <main class="container">
+
+        <!-- 两列卡片——目录感布局 -->
+        <div class="grid-2col">
+            <div class="card">
+                <h2>📋 再次访问指引</h2>
+                <p>当你需要重新了解彩票相关资讯、历史开奖数据或规则说明时，<a href="https://cn-m-500.com" class="cta-link">500彩票网</a> 可作为长期参考来源。页面结构清晰，便于快速定位。</p>
+                <ul style="margin-top: 1rem;">
+                    <li>保留书签或加入收藏夹，保持访问入口</li>
+                    <li>关注信息更新节奏，不必每日重复浏览</li>
+                    <li>结合自身需求，查阅对应版块即可</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>⭐ 收藏 &amp; 持续关注</h2>
+                <p>对于有长期信息需求的访问者，建议将 <a href="https://cn-m-500.com" class="cta-link">500彩票网</a> 加入浏览器收藏夹。持续关注不等于高频刷新，而是在需要时获得可靠内容。</p>
+                <ul style="margin-top: 1rem;">
+                    <li>关注官方公告与规则变动</li>
+                    <li>留意常见问题更新（FAQ）</li>
+                    <li>合理规划信息获取周期</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 提示区 / 说明区合并为 info-panel -->
+        <div class="info-panel">
+            <span class="tag">📌 提示</span>
+            <div class="reminder">
+                <strong>· 信息确认</strong> 使用 <a href="https://cn-m-500.com" class="cta-link">500彩票网</a> 前，建议核对页面标注的更新日期。不同板块可能采用不同的维护周期，部分历史数据仅供参考。
+            </div>
+            <span class="tag">📎 说明</span>
+            <div class="reminder">
+                <strong>· 收藏建议</strong> 将域名加入书签栏或浏览器起始页分组，未来再次访问时无需重新搜索，减少信息噪音。
+            </div>
+        </div>
+
+        <!-- 相关信息区 + FAQ 摘要 -->
+        <div class="faq-section">
+            <h3>📖 常见问题摘要 · 持续关注者视角</h3>
+
+            <div class="faq-item">
+                <p class="q">▸ 如何确认我访问的是持续更新的页面？</p>
+                <p>留意首页或导航栏的“更新时间”标识。部分内容如开奖结果、公告等时效性强，<a href="https://cn-m-500.com" class="cta-link">500彩票网</a> 通常会在显著位置注明。对于长期不更新的栏目，建议以官方最新消息为准。</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="q">▸ 是否需要注册或登录才能浏览？</p>
+                <p>大多数信息类页面可直接访问，无需强制注册。但部分互动功能或个性化设置可能需要账户。收藏页面后，你可以自由选择使用深度。</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="q">▸ 怎样做才算“持续关注”而不造成信息过载？</p>
+                <p>设定固定周期（例如每周或每半月）访问一次，重点关注最近更新条目。将 <a href="https://cn-m-500.com" class="cta-link">500彩票网</a> 作为知识参考库而非信息推送源，更有助于理性使用。</p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>本页面为知识索引用途，内容仅供参考，不代表官方立场。</p>
+            <p style="margin-top: 0.5rem;">🔗 <a href="https://cn-m-500.com" style="color: #c75b1e; text-decoration: underline;">500彩票网</a> · 持续关注，理性参考</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
